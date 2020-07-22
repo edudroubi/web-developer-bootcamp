@@ -1,6 +1,6 @@
 var playerOne = document.getElementById("player-one");
 var playerTwo = document.getElementById("player-two");
-var reset = document.getElementById("reset");
+var resetButton = document.getElementById("reset");
 var scoreboardPlayerOne = document.getElementsByTagName("span")[0];
 var scoreboardPlayerTwo = document.getElementsByTagName("span")[1];
 var scoreboardLimit = document.querySelector("p span");
@@ -10,6 +10,15 @@ var playerTwoScore = 0;
 var gameOver = false;
 var scoreLimit = 5;
 
+function reset () {
+  playerOneScore = 0;
+  playerTwoScore = 0;
+  gameOver = false;
+  scoreboardPlayerOne.classList.remove("winner");
+  scoreboardPlayerTwo.classList.remove("winner");
+  scoreboardPlayerOne.textContent = (playerOneScore);
+  scoreboardPlayerTwo.textContent = (playerTwoScore);
+}
 
 playerOne.addEventListener("click", function () {
   if (!gameOver) {
@@ -33,17 +42,12 @@ playerTwo.addEventListener("click", function () {
   }
 });
 
-reset.addEventListener("click", function () {
-  playerOneScore = 0;
-  playerTwoScore = 0;
-  gameOver = false;
-  scoreboardPlayerOne.classList.remove("winner");
-  scoreboardPlayerTwo.classList.remove("winner");
-  scoreboardPlayerOne.textContent = (playerOneScore);
-  scoreboardPlayerTwo.textContent = (playerTwoScore);
+resetButton.addEventListener("click", function () {
+  reset();
 });
 
 input.addEventListener("change", function () {
-  scoreboardLimit.textContent = input.value
-  scoreLimit = Number(input.value)
+  scoreboardLimit.textContent = input.value;
+  scoreLimit = Number(input.value);
+  reset();
 })
