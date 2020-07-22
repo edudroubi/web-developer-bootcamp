@@ -47,7 +47,7 @@ resetButton.addEventListener("click", function () {
 });
 
 input.addEventListener("change", function () {
-  scoreboardLimit.textContent = input.value;
-  scoreLimit = Number(input.value);
+  scoreboardLimit.textContent = this.value;
+  scoreLimit = Number(this.value);
   reset();
 })
