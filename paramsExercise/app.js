@@ -35,6 +35,10 @@ app.get("/repeat/:str/:num", function (req, res) {
   res.send(text);
 });
 
+app.get("*", function () {
+  res.send("Page not found!");
+});
+
 // Listen for resquests
 app.listen(port, function () {
   console.log("Server Started at http://localhost:" + port);
