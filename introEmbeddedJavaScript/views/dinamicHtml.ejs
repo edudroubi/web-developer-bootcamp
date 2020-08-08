@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <%= variableEjs %>
+<%- include("partials/header") %>
+  
   <% if (variableEjs === "rusty") { %>
     <p>Rusty is the best!</p>
   <% } else { %>
     <p>You should have searched for rusty</p>
   <% } %>
-</body>
-</html>
+
+<%- include("partials/footer") %>

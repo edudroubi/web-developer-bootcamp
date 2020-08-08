@@ -5,13 +5,14 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
-app.get("/", function (req, res) {
-  res.render("home.ejs");
-});
+// Serve the content of public directory
+app.use(express.static("public"));
 
-app.get("dog/:variable", function (req, res) {
-  let variable = req.params.variable;
-  res.render("dinamicHtml.ejs", {variableEjs: variable});
+// Set the extension of the files are .ejs
+app.set("view engine", "ejs");
+
+app.get("/", function (req, res) {
+  res.render("home");
 });
 
 app.get("/posts", function (req, res) {
@@ -22,7 +23,12 @@ app.get("/posts", function (req, res) {
     { title: "My Dream", author: "Denise" }
   ];
 
-  res.render("posts.ejs", { post: posts});
+  res.render("posts", { post: posts});
+});
+
+app.get("/dog/:variable", function (req, res) {
+  var variable = req.params.variable;
+  res.render("dinamicHtml", {variableEjs: variable});
 });
 
 // Listen for resquests
