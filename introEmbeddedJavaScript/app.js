@@ -27,7 +27,7 @@ app.get("/posts", function (req, res) {
 });
 
 app.get("/dog/:variable", function (req, res) {
-  var variable = req.params.variable;
+  let variable = req.params.variable;
   res.render("dinamicHtml", {variableEjs: variable});
 });
 
