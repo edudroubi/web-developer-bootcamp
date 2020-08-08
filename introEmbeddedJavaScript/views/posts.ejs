@@ -10,5 +10,9 @@
   <% for (let i = 0; i < post.length; i++) { %>
     <li><%= post[i].title %> - <strong><%= post[i].author %></strong></li>
   <% } %>
+
+  <% post.forEach(function (post) { %>
+    <li><%= post.title %> - <strong><%= post.author %></strong></li>
+  <% }) %>
 </body>
 </html>
